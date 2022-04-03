@@ -25,4 +25,26 @@
 <p><img src="https://img-blog.csdnimg.cn/dfb2dc22dc794fc8971591a8ebf1d3a8.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAaGFuaXdu,size_20,color_FFFFFF,t_70,g_se,x_16#pic_center" alt="在这里插入图片描述"></p>
 ]]></content>
   </entry>
+  <entry>
+    <title>今天</title>
+    <url>/posts/ae72.html</url>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="9d0f6ccc5cf61633cb90aaf7ca28a44516dc4c5f37088a1664a3589f22fd14c2">dfeb782a4f032383058d9fcb31a618528ff9d9daf856d44ee109dc7b5fc029a320f61c95d3ff36631607a2b9238fa342</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Hey, password is required here.</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>ac</category>
+      </categories>
+      <tags>
+        <tag>ac</tag>
+      </tags>
+  </entry>
 </search>
