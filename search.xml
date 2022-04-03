@@ -19,28 +19,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>今天</title>
-    <url>/posts/ae72.html</url>
-    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="9d0f6ccc5cf61633cb90aaf7ca28a44516dc4c5f37088a1664a3589f22fd14c2">dfeb782a4f032383058d9fcb31a618528ff9d9daf856d44ee109dc7b5fc029a320f61c95d3ff36631607a2b9238fa342</script>
-  <div class="hbe hbe-content">
-    <div class="hbe hbe-input hbe-input-default">
-      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Hey, password is required here.</span>
-      </label>
-    </div>
-  </div>
-</div>
-<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
-      <categories>
-        <category>ac</category>
-      </categories>
-      <tags>
-        <tag>ac</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>啦啦啦</title>
     <url>/posts/b03f.html</url>
     <content><![CDATA[<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">1e3</span> + <span class="number">10</span>;</span><br><span class="line"><span class="type">int</span> f[N][N];</span><br><span class="line"><span class="type">int</span> n,m;</span><br><span class="line"><span class="type">int</span> w[N],v[N];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span> ; i &lt;= n ; i ++ )  cin&gt;&gt;v[i]&gt;&gt;w[i];</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span> ; i &lt;= n ; i ++ )</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">1</span> ; j &lt;= m ; j ++ )</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(v[i] &gt; j)    f[i][j] = f[i<span class="number">-1</span>][j];</span><br><span class="line">            <span class="keyword">else</span> f[i][j] = <span class="built_in">max</span>(f[i<span class="number">-1</span>][j] , f[i<span class="number">-1</span>][j-v[i]] + w[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    cout&lt;&lt;f[n][m];</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
