@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="mask-icon" href="/images/favicon.ico" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"haniwn.top","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.11.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Codeforces Round #768 (Div. 2)C. And Matching题意：给出一个n和k，要求对由0，1，2，… ，n-1组成的数组，分成n&#x2F;2对，使每一对两个数的相与的和为k，n为2的次幂，要求给出一种划分方案。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CF#768">
+<meta property="og:url" content="https://haniwn.top/posts/42b.html">
+<meta property="og:site_name" content="haniwn">
+<meta property="og:description" content="Codeforces Round #768 (Div. 2)C. And Matching题意：给出一个n和k，要求对由0，1，2，… ，n-1组成的数组，分成n&#x2F;2对，使每一对两个数的相与的和为k，n为2的次幂，要求给出一种划分方案。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.acwing.com/media/article/image/2022/04/29/57661_0755d703c7-QQ%E6%88%AA%E5%9B%BE20220429113135.png">
+<meta property="article:published_time" content="2022-04-29T03:30:32.000Z">
+<meta property="article:modified_time" content="2022-04-29T07:06:20.853Z">
+<meta property="article:author" content="hanlu">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.acwing.com/media/article/image/2022/04/29/57661_0755d703c7-QQ%E6%88%AA%E5%9B%BE20220429113135.png">
+
+
+<link rel="canonical" href="https://haniwn.top/posts/42b.html">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://haniwn.top/posts/42b.html","path":"posts/42b.html","title":"CF#768"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>CF#768 | haniwn</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">haniwn</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">记录生活学习</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-links"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>资源链</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Codeforces-Round-768-Div-2"><span class="nav-number">1.</span> <span class="nav-text">Codeforces Round #768 (Div. 2)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#C-And-Matching"><span class="nav-number">1.1.</span> <span class="nav-text">C. And Matching</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="hanlu"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">hanlu</p>
+  <div class="site-description" itemprop="description">人最大的痛苦就是无法跨越知道和做到的鸿沟</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/haniwn" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;haniwn" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:2452037418@qq.com" title="E-Mail → mailto:2452037418@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/m0_51731088" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;m0_51731088" rel="noopener" target="_blank"><i class="fab fa-telegram fa-fw"></i>CSDN</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://haniwn.top/posts/42b.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="hanlu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="haniwn">
+      <meta itemprop="description" content="人最大的痛苦就是无法跨越知道和做到的鸿沟">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="CF#768 | haniwn">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          CF#768
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-04-29 11:30:32 / 修改时间：15:06:20" itemprop="dateCreated datePublished" datetime="2022-04-29T11:30:32+08:00">2022-04-29</time>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.9k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="Codeforces-Round-768-Div-2"><a href="#Codeforces-Round-768-Div-2" class="headerlink" title="Codeforces Round #768 (Div. 2)"></a><a target="_blank" rel="noopener" href="https://codeforces.com/contest/1631">Codeforces Round #768 (Div. 2)</a></h1><h2 id="C-And-Matching"><a href="#C-And-Matching" class="headerlink" title="C. And Matching"></a>C. And Matching</h2><p><strong>题意</strong>：给出一个n和k，要求对由0，1，2，… ，n-1组成的数组，分成n&#x2F;2对，使每一对两个数的相与的和为k，n为2的次幂，要求给出一种划分方案。</p>
+<p><img src="https://cdn.acwing.com/media/article/image/2022/04/29/57661_0755d703c7-QQ%E6%88%AA%E5%9B%BE20220429113135.png" alt="QQ截图20220429113135.png"> </p>
+<p><strong>思路</strong>：</p>
+<p>对于a&amp;b &#x3D; 0，我们可以定义f(a) &#x3D; b,至于如何构造，我们发现a&#x3D;101，b&#x3D;010，a^b &#x3D; 111，那么可以由a^(n-1)得到b，因为n是2的次幂，所以n-1就是范围内最长的，</p>
+<p>由此我们可以构造出k&#x3D;0的情况，即0&amp;(n-1),1&amp;(n-2),2&amp;(n-3)….,</p>
+<p>交换其中的一些数对，可以得到别的k值，例如对于0&lt;k&lt;n-1的所有情况都可以用k&amp;(n-1),0&amp;(f(k)),其他仍为0，比较特殊的有k&#x3D;n-1的情况，因为n-1是最大的数了，不能直接&amp;得到，所以可由1+n-2的情况得到，而对于n&#x3D;4，k&#x3D;3则无法得到。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ios ios::sync_with_stdio(false),cin.tie(0),cout.tie(0);</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">unsigned</span> <span class="type">long</span> <span class="type">long</span> ull;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> mod=<span class="number">1000000007</span> , N = <span class="number">7e4</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">double</span> eps=<span class="number">1e-8</span>;</span><br><span class="line"><span class="type">bool</span> st[N];</span><br><span class="line"><span class="type">int</span> n,k;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">f</span><span class="params">(<span class="type">int</span> a)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a^(n<span class="number">-1</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="type">int</span> t;</span><br><span class="line">	cin&gt;&gt;t;</span><br><span class="line">	<span class="keyword">while</span>(t--)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">memset</span>(st,<span class="number">0</span>,<span class="keyword">sizeof</span> st);</span><br><span class="line">		cin&gt;&gt;n&gt;&gt;k;</span><br><span class="line">		<span class="keyword">if</span>(k == <span class="number">0</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span> ; i &lt; n ; i ++ )</span><br><span class="line">				<span class="keyword">if</span>(!st[i])</span><br><span class="line">				&#123;</span><br><span class="line">					cout&lt;&lt;i&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;<span class="built_in">f</span>(i)&lt;&lt;<span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">					st[i] = st[<span class="built_in">f</span>(i)] = <span class="number">1</span>;</span><br><span class="line">				&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(k == n<span class="number">-1</span> &amp;&amp; n == <span class="number">4</span>)	cout&lt;&lt;<span class="string">&quot;-1\n&quot;</span>;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(k == n<span class="number">-1</span> &amp;&amp; n != <span class="number">4</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			cout&lt;&lt;n<span class="number">-2</span>&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;n<span class="number">-1</span>&lt;&lt;<span class="string">&quot;\n&quot;</span>;</span><br><span class="line">			cout&lt;&lt;<span class="number">0</span>&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;<span class="number">2</span>&lt;&lt;<span class="string">&quot;\n&quot;</span>;</span><br><span class="line">			cout&lt;&lt;<span class="number">1</span>&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;n<span class="number">-3</span>&lt;&lt;<span class="string">&quot;\n&quot;</span>;</span><br><span class="line">			st[<span class="number">0</span>] = st[<span class="number">1</span>] = st[<span class="number">2</span>] = st[n<span class="number">-1</span>] = st[n<span class="number">-2</span>] = st[n<span class="number">-3</span>] = <span class="number">1</span>;</span><br><span class="line">			<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">2</span> ; i &lt; n ; i ++ )</span><br><span class="line">				<span class="keyword">if</span>(!st[i])</span><br><span class="line">				&#123;</span><br><span class="line">					cout&lt;&lt;i&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;<span class="built_in">f</span>(i)&lt;&lt;<span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">					st[i] = st[<span class="built_in">f</span>(i)] = <span class="number">1</span>;</span><br><span class="line">				&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">		&#123;</span><br><span class="line">			cout&lt;&lt;k&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;n<span class="number">-1</span>&lt;&lt;<span class="string">&quot;\n&quot;</span>;</span><br><span class="line">			cout&lt;&lt;<span class="number">0</span>&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;<span class="built_in">f</span>(k)&lt;&lt;<span class="string">&quot;\n&quot;</span>;</span><br><span class="line">			st[<span class="number">0</span>] = st[k] = st[n<span class="number">-1</span>] = st[<span class="built_in">f</span>(k)] = <span class="number">1</span>;</span><br><span class="line">			<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">2</span> ; i &lt; n ; i ++ )</span><br><span class="line">				<span class="keyword">if</span>(!st[i])</span><br><span class="line">				&#123;</span><br><span class="line">					cout&lt;&lt;i&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;<span class="built_in">f</span>(i)&lt;&lt;<span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">					st[i] = st[<span class="built_in">f</span>(i)] = <span class="number">1</span>;</span><br><span class="line">				&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/54eb.html" rel="prev" title="CF#779">
+                  <i class="fa fa-chevron-left"></i> CF#779
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="lv-container" data-id="city" data-uid="MTAyMC81NTk1NC8zMjQxNw=="></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">hanlu</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">5k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">5 分钟</span>
+  </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+<script src="/js/third-party/comments/livere.js"></script>
+
+</body>
+</html>
